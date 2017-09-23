@@ -1,0 +1,11 @@
+.float-left {
+    float: left;
+    /*border: solid 1px black;*/
+    width: 250px;
+    /*color: #cc0000;*/
+    /*font-weight: bold;*/
+}
+
+.float-clear {
+    clear:both;
+}
