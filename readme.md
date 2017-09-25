@@ -2,6 +2,8 @@ A very thing wrapper for http://pinboard.in
 
 Gives a lightweight view of your bookmarks.
 
+See it running here: https://pinboard.kimptoc.net - you need to login with your pinboard credentials!
+
 Read only!
 
 To run this via Docker:
