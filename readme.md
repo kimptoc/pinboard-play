@@ -9,10 +9,10 @@ Read only!
 To run this via Docker:
 
 First build it.
-$ docker build -t pinboard-play .
+$ sudo docker build -t pinboard-play .
 
 Then run it.
-$ docker run --rm --name pinboard-play -i -p 9000:9000 pinboard-play sbt run
+$ sudo docker run --rm --name pinboard-play -i -p 9000:9000 pinboard-play sbt run
 
 setup prod image
 $ sudo docker build -t pinboard-play-prod prod
