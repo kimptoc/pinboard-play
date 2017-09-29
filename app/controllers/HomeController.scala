@@ -31,6 +31,10 @@ class HomeController @Inject()(cc: ControllerComponents) extends AbstractControl
 //  }
 
 def index = Action { request =>
+  Ok(views.html.index("Pinboard!"))
+}
+
+def pinboard = Action { request =>
   val authInCookie = request.cookies.get(HomeController.COOKIE_KEY_AUTH)
   var authText = ""
   var authOk = true
@@ -59,7 +63,7 @@ def index = Action { request =>
       val tagValue = request.queryString.getOrElse("tag",Seq("")).head
       println(s"about to lookup bookmarks using $username for tag $tagValue")
       bookmarks = Blumpum.getPosts(0, tag = tagValue, username, password).sortBy(_.title)
-      Ok(views.html.index("Pinboard!",username, tagValue, bookmarks))
+      Ok(views.html.pinboard("Pinboard!",username, tagValue, bookmarks))
         .withCookies(Cookie(HomeController.COOKIE_KEY_AUTH,authText))
     } catch {
       case ex: Error => {

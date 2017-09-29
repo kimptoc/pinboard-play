@@ -4,7 +4,8 @@
 * two arguments, a `String` for the title of the page and an `Html`
 * object to insert into the body of the page.
 *@
-@(title: String)
+@import util.Bookmark
+@(title: String, username:String, tag:String, links: Seq[Bookmark])
 
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +19,16 @@
     @* And here's where we render the `Html` object containing
     * the page content. *@
 
-    <a href="/pinboard">My Pinboard View</a>
+    @for(link <- links) {
+      <span class="float-left"><a href="@link.url" target="_blank">@link.title</a></span>
+    }
+
+    <p class="float-clear"></p><br>
+    <hr>
+
+    <span class="float-left">User:@username</span>
+    <span class="float-left"><a href="logout">Logout</a></span>
+    <span class="float-left"><a href="https://pinboard.in/u:@username/t:@tag/">Pinboard</a></span>
 
   </body>
 </html>
